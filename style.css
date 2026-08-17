@@ -68,7 +68,13 @@ body {
   color: #00ff66;
 }
 
-/* Checkbox y botón hamburguesa ocultos en desktop */
+/* Oculta BIO exclusivamente en la barra de navegación de escritorio */
+@media (min-width: 901px) {
+  .bio-desktop-hide {
+    display: none;
+  }
+}
+
 .nav-toggle, .nav-toggle-label {
   display: none;
 }
@@ -169,6 +175,7 @@ body {
   max-width: 1050px;
   margin: 0 auto 80px auto;
   padding: 0 25px;
+  scroll-margin-top: 110px;
 }
 
 .section-title {
@@ -294,14 +301,24 @@ body {
 .gallery-track {
   display: flex;
   gap: 20px;
-  overflow-x: hidden;
+  overflow-x: auto;
   scroll-behavior: smooth;
   padding: 10px 0;
-  scrollbar-width: none;
+  scrollbar-width: thin;
+  scrollbar-color: #00ff66 #0c0c0c;
 }
 
 .gallery-track::-webkit-scrollbar {
-  display: none;
+  height: 6px;
+}
+
+.gallery-track::-webkit-scrollbar-track {
+  background: #0c0c0c;
+}
+
+.gallery-track::-webkit-scrollbar-thumb {
+  background: #00ff66;
+  border-radius: 3px;
 }
 
 .gallery-track img {
@@ -311,40 +328,6 @@ body {
   border-radius: 8px;
   flex-shrink: 0;
   border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.gallery-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  background: rgba(0, 0, 0, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #fff;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  text-decoration: none;
-  z-index: 10;
-  transition: all 0.2s ease;
-  backdrop-filter: blur(5px);
-}
-
-.gallery-arrow:hover {
-  background: #00ff66;
-  border-color: #00ff66;
-  color: #000;
-}
-
-.gallery-prev {
-  left: -15px;
-}
-
-.gallery-next {
-  right: -15px;
 }
 
 /* TOUR DATES */
@@ -357,7 +340,7 @@ body {
   display: grid;
   grid-template-columns: 1.2fr 2fr 2.5fr;
   background: rgba(255, 255, 255, 0.02);
-  padding: 18px 30px;
+  padding: 18px 20px;
   font-weight: 800;
   font-size: 0.75rem;
   letter-spacing: 2px;
@@ -388,12 +371,23 @@ body {
 .tour-row {
   display: grid;
   grid-template-columns: 1.2fr 2fr 2.5fr;
-  padding: 18px 30px;
+  padding: 18px 20px;
   font-size: 0.9rem;
   color: #bbb;
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
   align-items: center;
   transition: background 0.15s ease;
+}
+
+.tour-header span:not(:last-child),
+.tour-row span:not(:last-child) {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  padding-right: 12px;
+}
+
+.tour-header span:not(:first-child),
+.tour-row span:not(:first-child) {
+  padding-left: 12px;
 }
 
 .tour-row:hover {
@@ -404,16 +398,6 @@ body {
   color: #00ff66;
   font-weight: bold;
   background: rgba(0, 255, 102, 0.06);
-}
-
-.tour-scroll-indicator {
-  text-align: center;
-  background: #080808;
-  padding: 14px;
-  color: #666;
-  font-size: 0.75rem;
-  letter-spacing: 1.5px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 /* BOOKING */
@@ -555,11 +539,11 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    padding: 30px 20px;
+    padding: 0 20px; /* Padding vertical en 0 cuando está cerrado para que no se asome nada */
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.35s ease-in-out, padding 0.35s ease-in-out;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0);
     backdrop-filter: blur(10px);
   }
 
@@ -570,13 +554,20 @@ body {
     width: 100%;
   }
 
+  /* Vuelve a mostrar BIO en el menú desplegable de móvil */
+  .bio-desktop-hide {
+    display: block;
+  }
+
   .nav-links a {
     font-size: 0.85rem;
   }
 
+  /* Al abrir el menú se despliega la altura y el padding vertical de forma suave */
   .nav-toggle:checked ~ .nav-menu-wrapper {
     max-height: 500px;
     padding: 30px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .nav-toggle:checked ~ .nav-right-mobile .nav-toggle-label span {
@@ -596,15 +587,24 @@ body {
   .music-row {
     grid-template-columns: 1fr;
   }
+  
   .tour-header, .tour-row {
-    grid-template-columns: 1fr 1.5fr 1.5fr;
-    font-size: 0.8rem;
-    padding: 15px 20px;
+    grid-template-columns: 1fr 1.2fr 1.5fr;
+    font-size: 0.78rem;
+    padding: 14px 12px;
   }
+
+  .tour-header span:not(:last-child),
+  .tour-row span:not(:last-child) {
+    padding-right: 8px;
+  }
+
+  .tour-header span:not(:first-child),
+  .tour-row span:not(:first-child) {
+    padding-left: 8px;
+  }
+
   .section-title {
     font-size: 1.5rem;
-  }
-  .gallery-arrow {
-    display: none;
   }
 }
