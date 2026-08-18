@@ -694,16 +694,13 @@ svg {
 .photo-track img {
   width: clamp(240px, 34vw, 390px);
   height: clamp(320px, 46vw, 520px);
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: var(--radius-md);
   flex-shrink: 0;
   border: 1px solid var(--color-border);
   filter: grayscale(0.08) saturate(0.95) contrast(1.08);
   transition: transform 420ms ease, filter 420ms ease, border-color var(--transition);
-}
-
-.photo-track img:nth-child(3n) {
-  height: clamp(260px, 38vw, 440px);
 }
 
 .photo-track img:hover {
