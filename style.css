@@ -1126,14 +1126,6 @@ svg {
     padding-bottom: 170px;
   }
 
-  .hero-logo-bottom {
-    left: 50%;
-    right: auto;
-    bottom: 42px;
-    width: min(340px, 72vw);
-    transform: translateX(-50%);
-  }
-
   .intro-grid,
   .music-row {
     grid-template-columns: 1fr;
@@ -1194,8 +1186,8 @@ svg {
     min-height: 700px;
   }
 
-  .hero h1 {
-    font-size: clamp(4rem, 22vw, 6.4rem);
+  .hero-title-logo {
+    max-width: min(520px, 86vw);
   }
 
   .hero-ctas {
