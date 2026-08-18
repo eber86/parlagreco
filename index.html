@@ -64,7 +64,11 @@
   <header class="hero">
     <div class="hero-noise" aria-hidden="true"></div>
     <div class="hero-overlay" aria-hidden="true"></div>
-    <img src="images/principal.jpg" alt="Parlagreco performing live" class="hero-img" width="2244" height="1680" fetchpriority="high">
+    <picture class="hero-media">
+      <source type="image/avif" srcset="images/optimized/principal-960.avif 960w, images/optimized/principal-1440.avif 1440w, images/optimized/principal-1920.avif 1920w" sizes="100vw">
+      <source type="image/jpeg" srcset="images/optimized/principal-960.jpg 960w, images/optimized/principal-1440.jpg 1440w, images/optimized/principal-1920.jpg 1920w" sizes="100vw">
+      <img src="images/optimized/principal-1440.jpg" srcset="images/optimized/principal-960.jpg 960w, images/optimized/principal-1440.jpg 1440w, images/optimized/principal-1920.jpg 1920w" sizes="100vw" alt="Parlagreco performing live" class="hero-img" width="1440" height="1078" fetchpriority="high" decoding="async">
+    </picture>
     <div class="hero-content">
       <p class="eyebrow">Argentina / Denmark / Europe</p>
       <h1 class="hero-title-logo">
@@ -264,22 +268,22 @@
       <div class="gallery-wrapper photo-wrapper">
         <button class="gallery-arrow gallery-arrow-left" id="galleryPrev" aria-label="Previous gallery photos">&#10094;</button>
         <div class="gallery-track photo-track" id="galleryTrack">
-          <img src="images/foto1.jpg" alt="Parlagreco gallery photo 1" width="1631" height="1870" loading="lazy" decoding="async">
-          <img src="images/foto2.jpg" alt="Parlagreco gallery photo 2" width="3120" height="2124" loading="lazy" decoding="async">
-          <img src="images/foto3.jpg" alt="Parlagreco gallery photo 3" width="1219" height="1219" loading="lazy" decoding="async">
-          <img src="images/foto4.jpg" alt="Parlagreco gallery photo 4" width="1608" height="1414" loading="lazy" decoding="async">
-          <img src="images/foto5.jpg" alt="Parlagreco gallery photo 5" width="3806" height="5075" loading="lazy" decoding="async">
-          <img src="images/foto7.jpg" alt="Parlagreco gallery photo 7" width="1238" height="1185" loading="lazy" decoding="async">
-          <img src="images/foto8.jpg" alt="Parlagreco gallery photo 8" width="1582" height="1005" loading="lazy" decoding="async">
-          <img src="images/foto9.jpg" alt="Parlagreco gallery photo 9" width="1206" height="1115" loading="lazy" decoding="async">
-          <img src="images/foto10.jpg" alt="Parlagreco gallery photo 10" width="1262" height="1338" loading="lazy" decoding="async">
-          <img src="images/foto11.jpg" alt="Parlagreco gallery photo 11" width="1384" height="1288" loading="lazy" decoding="async">
-          <img src="images/foto12.jpg" alt="Parlagreco gallery photo 12" width="1009" height="974" loading="lazy" decoding="async">
-          <img src="images/foto13.jpg" alt="Parlagreco gallery photo 13" width="2362" height="1577" loading="lazy" decoding="async">
-          <img src="images/foto14.jpg" alt="Parlagreco gallery photo 14" width="2048" height="1365" loading="lazy" decoding="async">
-          <img src="images/foto15.jpg" alt="Parlagreco gallery photo 15" width="2869" height="3554" loading="lazy" decoding="async">
-          <img src="images/foto16.jpg" alt="Parlagreco gallery photo 16" width="2048" height="1224" loading="lazy" decoding="async">
-          <img src="images/foto17.jpg" alt="Parlagreco gallery photo 17" width="864" height="640" loading="lazy" decoding="async">
+          <img src="images/optimized/foto1-1000.jpg" alt="Parlagreco gallery photo 1" width="872" height="1000" loading="lazy" decoding="async">
+          <img src="images/optimized/foto2-1000.jpg" alt="Parlagreco gallery photo 2" width="1000" height="680" loading="lazy" decoding="async">
+          <img src="images/optimized/foto3-1000.jpg" alt="Parlagreco gallery photo 3" width="1000" height="1000" loading="lazy" decoding="async">
+          <img src="images/optimized/foto4-1000.jpg" alt="Parlagreco gallery photo 4" width="1000" height="879" loading="lazy" decoding="async">
+          <img src="images/optimized/foto5-1000.jpg" alt="Parlagreco gallery photo 5" width="750" height="1000" loading="lazy" decoding="async">
+          <img src="images/optimized/foto7-1000.jpg" alt="Parlagreco gallery photo 7" width="1000" height="957" loading="lazy" decoding="async">
+          <img src="images/optimized/foto8-1000.jpg" alt="Parlagreco gallery photo 8" width="1000" height="635" loading="lazy" decoding="async">
+          <img src="images/optimized/foto9-1000.jpg" alt="Parlagreco gallery photo 9" width="1000" height="924" loading="lazy" decoding="async">
+          <img src="images/optimized/foto10-1000.jpg" alt="Parlagreco gallery photo 10" width="943" height="1000" loading="lazy" decoding="async">
+          <img src="images/optimized/foto11-1000.jpg" alt="Parlagreco gallery photo 11" width="1000" height="930" loading="lazy" decoding="async">
+          <img src="images/optimized/foto12-1000.jpg" alt="Parlagreco gallery photo 12" width="1000" height="965" loading="lazy" decoding="async">
+          <img src="images/optimized/foto13-1000.jpg" alt="Parlagreco gallery photo 13" width="1000" height="667" loading="lazy" decoding="async">
+          <img src="images/optimized/foto14-1000.jpg" alt="Parlagreco gallery photo 14" width="1000" height="666" loading="lazy" decoding="async">
+          <img src="images/optimized/foto15-1000.jpg" alt="Parlagreco gallery photo 15" width="807" height="1000" loading="lazy" decoding="async">
+          <img src="images/optimized/foto16-1000.jpg" alt="Parlagreco gallery photo 16" width="1000" height="597" loading="lazy" decoding="async">
+          <img src="images/optimized/foto17-1000.jpg" alt="Parlagreco gallery photo 17" width="864" height="640" loading="lazy" decoding="async">
         </div>
         <button class="gallery-arrow gallery-arrow-right" id="galleryNext" aria-label="Next gallery photos">&#10095;</button>
       </div>
