@@ -68,7 +68,6 @@ body {
   color: #00ff66;
 }
 
-/* Oculta BIO exclusivamente en la barra de navegación de escritorio */
 @media (min-width: 901px) {
   .bio-desktop-hide {
     display: none;
@@ -116,10 +115,10 @@ body {
   display: none;
 }
 
-/* PORTADA (HERO) */
+/* PORTADA (HERO) - OCUPA TODO EL ANCHO Y COLOR ORIGINAL */
 .hero {
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 85vh;
   max-height: 85vh;
   overflow: hidden;
@@ -136,30 +135,32 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 40%, rgba(0,0,0,0.6) 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, transparent 50%, rgba(0,0,0,0.85) 100%);
   z-index: 2;
-  pointer-events: none;
-}
-
-.hero-logo-center {
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50vw;
-  max-width: 550px;
-  height: auto;
-  z-index: 3;
-  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.95));
   pointer-events: none;
 }
 
 .hero-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Asegura cubrir el 100% horizontal sin deformación */
+  object-position: center center;
+  filter: none; /* Sin filtros: respeta los colores originales */
   display: block;
   z-index: 1;
+}
+
+.hero-logo-bottom {
+  position: absolute;
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 45vw;
+  max-width: 500px;
+  height: auto;
+  z-index: 3;
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.95));
+  pointer-events: none;
 }
 
 /* CONTENEDOR GENERAL */
@@ -200,11 +201,8 @@ body {
 /* BIOGRAFÍA */
 .bio-card p {
   color: #aaa;
-  font-size: 1rem;
+  font-size: 1.05rem;
   line-height: 1.85;
-  margin-bottom: 20px;
-}
-.bio-card p:last-child {
   margin-bottom: 0;
 }
 
@@ -217,7 +215,7 @@ body {
 
 .music-row {
   display: grid;
-  grid-template-columns: 2fr 1.2fr;
+  grid-template-columns: 1.2fr 2fr;
   background: #0c0c0c;
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 12px;
@@ -255,6 +253,80 @@ body {
   line-height: 1.6;
 }
 
+/* BEATPORT CARDS */
+.beatport-card {
+  flex: 0 0 280px;
+  background: #080808;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.beatport-card:hover {
+  transform: translateY(-4px);
+  border-color: #00ff66;
+}
+
+.beatport-img-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+.beatport-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.beatport-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.beatport-card:hover .beatport-overlay {
+  opacity: 1;
+}
+
+.beatport-btn-text {
+  color: #00ff66;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  border: 1px solid #00ff66;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.beatport-info {
+  padding: 15px;
+}
+
+.beatport-info h3 {
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.beatport-info p {
+  color: #888;
+  font-size: 0.8rem;
+}
+
 /* ACCIONES Y BOTONES */
 .action-card {
   text-align: center;
@@ -289,13 +361,15 @@ body {
   box-shadow: 0 4px 20px rgba(0, 255, 102, 0.3);
 }
 
-/* GALERÍA */
+/* GALERÍA / CARRUSELES */
 .gallery-wrapper {
   position: relative;
   background: #0c0c0c;
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 12px;
-  padding: 25px;
+  padding: 25px 45px;
+  display: flex;
+  align-items: center;
 }
 
 .gallery-track {
@@ -304,21 +378,13 @@ body {
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 10px 0;
-  scrollbar-width: thin;
-  scrollbar-color: #00ff66 #0c0c0c;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  width: 100%;
 }
 
 .gallery-track::-webkit-scrollbar {
-  height: 6px;
-}
-
-.gallery-track::-webkit-scrollbar-track {
-  background: #0c0c0c;
-}
-
-.gallery-track::-webkit-scrollbar-thumb {
-  background: #00ff66;
-  border-radius: 3px;
+  display: none;
 }
 
 .gallery-track img {
@@ -328,6 +394,40 @@ body {
   border-radius: 8px;
   flex-shrink: 0;
   border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: #00ff66;
+  border: 1px solid rgba(0, 255, 102, 0.4);
+  font-size: 1.3rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.gallery-arrow:hover {
+  background: #00ff66;
+  color: #000;
+  border-color: #00ff66;
+  box-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
+}
+
+.gallery-arrow-left {
+  left: 10px;
+}
+
+.gallery-arrow-right {
+  right: 10px;
 }
 
 /* TOUR DATES */
@@ -452,8 +552,41 @@ body {
   cursor: text;
 }
 
-/* RESPONSIVO PARA MÓVILES */
+/* BOTÓN VOLVER ARRIBA */
+.back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 45px;
+  height: 45px;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid #00ff66;
+  color: #00ff66;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  z-index: 999;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+.back-to-top:hover {
+  background: #00ff66;
+  color: #000;
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(0, 255, 102, 0.5);
+}
+
+/* RESPONSIVO MÓVIL */
 @media (max-width: 900px) {
+  .hero {
+    height: 60vh;
+    max-height: 60vh;
+  }
+
   .navbar {
     padding: 14px 20px;
   }
@@ -539,7 +672,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    padding: 0 20px; /* Padding vertical en 0 cuando está cerrado para que no se asome nada */
+    padding: 0 20px;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.35s ease-in-out, padding 0.35s ease-in-out;
@@ -554,7 +687,6 @@ body {
     width: 100%;
   }
 
-  /* Vuelve a mostrar BIO en el menú desplegable de móvil */
   .bio-desktop-hide {
     display: block;
   }
@@ -563,7 +695,6 @@ body {
     font-size: 0.85rem;
   }
 
-  /* Al abrir el menú se despliega la altura y el padding vertical de forma suave */
   .nav-toggle:checked ~ .nav-menu-wrapper {
     max-height: 500px;
     padding: 30px 20px;
@@ -587,7 +718,17 @@ body {
   .music-row {
     grid-template-columns: 1fr;
   }
-  
+
+  .gallery-wrapper {
+    padding: 20px 35px;
+  }
+
+  .gallery-arrow {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
   .tour-header, .tour-row {
     grid-template-columns: 1fr 1.2fr 1.5fr;
     font-size: 0.78rem;

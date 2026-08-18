@@ -6,7 +6,7 @@
   <title>Parlagreco — Official Website</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="top">
 
   <!-- NAVEGACIÓN -->
   <nav class="navbar">
@@ -50,11 +50,11 @@
     </div>
   </nav>
 
-  <!-- PORTADA CON LOGO -->
+  <!-- PORTADA CON IMAGEN PRINCIPAL EN COLOR Y ANCHO COMPLETO -->
   <header class="hero">
     <div class="hero-overlay"></div>
-    <img src="images/logo.png" alt="Parlagreco Logo" class="hero-logo-center">
-    <img src="images/principal.JPG" alt="Parlagreco" class="hero-img">
+    <img src="images/principal.jpg" alt="Parlagreco" class="hero-img">
+    <img src="images/logo.png" alt="Parlagreco Logo" class="hero-logo-bottom">
   </header>
 
   <!-- CONTENIDO PRINCIPAL -->
@@ -64,13 +64,7 @@
     <section id="bio" class="container">
       <h2 class="section-title">BIOGRAPHY</h2>
       <div class="card bio-card">
-        <p>Originally from Morón, Buenos Aires (Argentina), Parlagreco is a DJ and producer active in the electronic music scene since 2004. With more than two decades behind the decks, he has developed a distinctive sound blending Techno and Progressive House, characterized by deep grooves, hypnotic atmospheres and immersive storytelling on the dancefloor.</p>
-        <p>His musical vision has been influenced by iconic electronic artists such as Richie Hawtin, Underworld and John Digweed, shaping his approach to building dynamic and emotionally driven DJ sets.</p>
-        <p>Throughout his career, Parlagreco has performed in cities such as Buenos Aires, Milan, Barcelona, Amsterdam and Copenhagen, connecting with audiences across both the South American and European electronic scenes.</p>
-        <p>He has shared the booth with respected artists including Jorge Ciccioli, Emi Galván, DJ Ruby, Martín García, Baunder, Elio Riso and Javier Bussola.</p>
-        <p>Parlagreco has also been part of the Buenos Aires agency Groove Selections, where he developed a residency that helped strengthen his presence within the underground electronic circuit.</p>
-        <p>As a producer, his music is available on platforms such as Beatport, Spotify and SoundCloud, where he shares his sonic identity through original tracks and DJ sets.</p>
-        <p>With a solid background and a refined sound, Parlagreco continues expanding his international presence, bringing his groove-driven and hypnotic sets to dancefloors across Europe and South America.</p>
+        <p>Hailing from Morón (Buenos Aires), Parlagreco is an Argentine DJ and producer with over two decades in the electronic scene. Blending Techno and Progressive House through deep grooves and hypnotic atmospheres, he has performed across South America and Europe (Barcelona, Amsterdam, Milan, Copenhagen) alongside top underground artists. Stream his music on Beatport, Spotify, and SoundCloud.</p>
       </div>
     </section>
 
@@ -79,30 +73,30 @@
       <h2 class="section-title">MUSIC</h2>
       <div class="music-container">
         <div class="music-row">
-          <div class="music-player-box">
-            <iframe scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/parlagrecomusic/sets/live-sets&color=%2300ff66&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false"></iframe>
-          </div>
           <div class="music-info">
             <h3>LIVE SETS</h3>
             <p>Immersive journey through hypnotic progressive house and techno recorded live from venues and festivals.</p>
           </div>
+          <div class="music-player-box">
+            <iframe scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/parlagrecomusic/sets/live-sets&color=%2300ff66&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false"></iframe>
+          </div>
         </div>
         <div class="music-row">
-          <div class="music-player-box">
-            <iframe scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/parlagrecomusic/sets/releases&color=%2300ff66&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false"></iframe>
-          </div>
           <div class="music-info">
             <h3>RELEASES</h3>
             <p>Original tracks and official productions crafted for peak-time dancefloors and deep listening.</p>
           </div>
+          <div class="music-player-box">
+            <iframe scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/parlagrecomusic/sets/releases&color=%2300ff66&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false"></iframe>
+          </div>
         </div>
         <div class="music-row">
-          <div class="music-player-box">
-            <iframe scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/parlagrecomusic/sets/free-download&color=%2300ff66&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false"></iframe>
-          </div>
           <div class="music-info">
             <h3>FREE DOWNLOAD</h3>
             <p>Special edits, unreleased club cuts, and exclusive tracks available directly for the community.</p>
+          </div>
+          <div class="music-player-box">
+            <iframe scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/parlagrecomusic/sets/free-download&color=%2300ff66&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false"></iframe>
           </div>
         </div>
       </div>
@@ -110,10 +104,104 @@
 
     <!-- BEATPORT -->
     <section id="beatport" class="container">
-      <h2 class="section-title">BEATPORT</h2>
-      <div class="card action-card">
-        <p>Explore official releases, original tracks, and remixes on Beatport.</p>
-        <a href="https://www.beatport.com/es/artist/parlagreco/990748" target="_blank" class="btn-primary">VISIT BEATPORT PROFILE</a>
+      <h2 class="section-title">BEATPORT RELEASES</h2>
+      <div class="gallery-wrapper">
+        <button class="gallery-arrow gallery-arrow-left" id="beatportPrev">&#10094;</button>
+        <div class="gallery-track" id="beatportTrack">
+          
+          <a href="https://www.beatport.com/es/release/hole/6441640" target="_blank" class="beatport-card">
+            <div class="beatport-img-container">
+              <img src="images/release-hole.jpg" alt="Hole - Parlagreco">
+              <div class="beatport-overlay">
+                <span class="beatport-btn-text">BUY ON BEATPORT</span>
+              </div>
+            </div>
+            <div class="beatport-info">
+              <h3>HOLE</h3>
+              <p>Parlagreco</p>
+            </div>
+          </a>
+
+          <a href="https://www.beatport.com/es/release/valby-dessert/5183732" target="_blank" class="beatport-card">
+            <div class="beatport-img-container">
+              <img src="images/release-valby-dessert.jpg" alt="Valby Dessert - Parlagreco">
+              <div class="beatport-overlay">
+                <span class="beatport-btn-text">BUY ON BEATPORT</span>
+              </div>
+            </div>
+            <div class="beatport-info">
+              <h3>VALBY DESSERT</h3>
+              <p>Parlagreco</p>
+            </div>
+          </a>
+
+          <a href="https://www.beatport.com/es/release/the-legacy/4244241" target="_blank" class="beatport-card">
+            <div class="beatport-img-container">
+              <img src="images/release-the-legacy.jpg" alt="The Legacy - Parlagreco Remix">
+              <div class="beatport-overlay">
+                <span class="beatport-btn-text">BUY ON BEATPORT</span>
+              </div>
+            </div>
+            <div class="beatport-info">
+              <h3>THE LEGACY</h3>
+              <p>Ovlak (Parlagreco Remix)</p>
+            </div>
+          </a>
+
+          <a href="https://www.beatport.com/es/release/ether/3737087" target="_blank" class="beatport-card">
+            <div class="beatport-img-container">
+              <img src="images/release-ether.jpg" alt="Ether - Parlagreco Remix">
+              <div class="beatport-overlay">
+                <span class="beatport-btn-text">BUY ON BEATPORT</span>
+              </div>
+            </div>
+            <div class="beatport-info">
+              <h3>ETHER</h3>
+              <p>Tenerfuse (Parlagreco Remix)</p>
+            </div>
+          </a>
+
+          <a href="https://www.beatport.com/es/track/kontrol/15721701" target="_blank" class="beatport-card">
+            <div class="beatport-img-container">
+              <img src="images/release-kontrol.jpg" alt="Kontrol - Parlagreco">
+              <div class="beatport-overlay">
+                <span class="beatport-btn-text">BUY ON BEATPORT</span>
+              </div>
+            </div>
+            <div class="beatport-info">
+              <h3>KONTROL</h3>
+              <p>Parlagreco</p>
+            </div>
+          </a>
+
+          <a href="https://www.beatport.com/es/track/dreams/16617514" target="_blank" class="beatport-card">
+            <div class="beatport-img-container">
+              <img src="images/release-dreams.jpg" alt="Dreams - Parlagreco">
+              <div class="beatport-overlay">
+                <span class="beatport-btn-text">BUY ON BEATPORT</span>
+              </div>
+            </div>
+            <div class="beatport-info">
+              <h3>DREAMS</h3>
+              <p>Parlagreco</p>
+            </div>
+          </a>
+
+          <a href="https://www.beatport.com/es/track/straight/15382129" target="_blank" class="beatport-card">
+            <div class="beatport-img-container">
+              <img src="images/release-straight.jpg" alt="Straight - Parlagreco">
+              <div class="beatport-overlay">
+                <span class="beatport-btn-text">BUY ON BEATPORT</span>
+              </div>
+            </div>
+            <div class="beatport-info">
+              <h3>STRAIGHT</h3>
+              <p>Parlagreco</p>
+            </div>
+          </a>
+
+        </div>
+        <button class="gallery-arrow gallery-arrow-right" id="beatportNext">&#10095;</button>
       </div>
     </section>
 
@@ -130,6 +218,7 @@
     <section id="gallery" class="container">
       <h2 class="section-title">GALLERY</h2>
       <div class="gallery-wrapper">
+        <button class="gallery-arrow gallery-arrow-left" id="galleryPrev">&#10094;</button>
         <div class="gallery-track" id="galleryTrack">
           <img src="images/foto1.jpg" alt="Gallery 1">
           <img src="images/foto2.jpg" alt="Gallery 2">
@@ -148,6 +237,7 @@
           <img src="images/foto16.jpg" alt="Gallery 16">
           <img src="images/foto17.jpg" alt="Gallery 17">
         </div>
+        <button class="gallery-arrow gallery-arrow-right" id="galleryNext">&#10095;</button>
       </div>
     </section>
 
@@ -217,5 +307,39 @@
     </section>
 
   </main>
+
+  <!-- BOTÓN FLOTANTE INICIO -->
+  <a href="#top" class="back-to-top" title="Volver arriba">&#8593;</a>
+
+  <script>
+    function setupCarousel(trackId, prevBtnId, nextBtnId, scrollAmount = 300) {
+      const track = document.getElementById(trackId);
+      const prevBtn = document.getElementById(prevBtnId);
+      const nextBtn = document.getElementById(nextBtnId);
+
+      if (!track || !prevBtn || !nextBtn) return;
+
+      nextBtn.addEventListener('click', () => {
+        const maxScrollLeft = track.scrollWidth - track.clientWidth;
+        if (track.scrollLeft >= maxScrollLeft - 5) {
+          track.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+      });
+
+      prevBtn.addEventListener('click', () => {
+        if (track.scrollLeft <= 5) {
+          const maxScrollLeft = track.scrollWidth - track.clientWidth;
+          track.scrollTo({ left: maxScrollLeft, behavior: 'smooth' });
+        } else {
+          track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        }
+      });
+    }
+
+    setupCarousel('galleryTrack', 'galleryPrev', 'galleryNext', 320);
+    setupCarousel('beatportTrack', 'beatportPrev', 'beatportNext', 300);
+  </script>
 </body>
 </html>
