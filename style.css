@@ -348,10 +348,9 @@ svg {
 }
 
 .intro-grid {
-  display: grid;
-  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
-  gap: clamp(40px, 7vw, 96px);
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
 }
 
 .section-heading {
@@ -434,6 +433,7 @@ svg {
 .bio-card {
   padding: clamp(30px, 5vw, 54px);
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.44), 0 0 18px rgba(0, 255, 102, 0.08);
+  max-width: 920px;
 }
 
 .bio-card p {
@@ -1173,13 +1173,8 @@ svg {
   }
 
 
-  .intro-grid,
   .music-row {
     grid-template-columns: 1fr;
-  }
-
-  .intro-grid {
-    gap: 40px;
   }
 
   .split-heading {
