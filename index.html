@@ -138,7 +138,7 @@
 
     <!-- BEATPORT -->
     <section id="beatport" class="container feature-section">
-      <div class="section-heading split-heading">
+      <div class="section-heading stack-heading">
         <div>
           <p class="section-kicker">Selected catalog</p>
           <h2 class="section-title">Beatport Releases</h2>
@@ -257,7 +257,7 @@
 
     <!-- GALERÍA -->
     <section id="gallery" class="container feature-section gallery-section">
-      <div class="section-heading split-heading">
+      <div class="section-heading stack-heading">
         <div>
           <p class="section-kicker">Visual archive</p>
           <h2 class="section-title">Gallery</h2>
@@ -354,9 +354,10 @@
           <a href="mailto:parlagrecomusic@gmail.com" class="booking-email-btn">
             SEND EMAIL
           </a>
-          <div class="email-copy-box">
-            <span>parlagrecomusic@gmail.com</span>
-          </div>
+          <button type="button" class="email-copy-box" data-email="parlagrecomusic@gmail.com" aria-label="Copy booking email to clipboard">
+            <span class="email-copy-address">parlagrecomusic@gmail.com</span>
+            <span class="email-copy-action">Tap to copy</span>
+          </button>
         </div>
       </div>
     </section>
@@ -413,6 +414,49 @@
 
     setupCarousel('galleryTrack', 'galleryPrev', 'galleryNext', 360);
     setupCarousel('beatportTrack', 'beatportPrev', 'beatportNext', 320);
+
+    const emailCopyBox = document.querySelector('.email-copy-box[data-email]');
+
+    if (emailCopyBox) {
+      const emailCopyAction = emailCopyBox.querySelector('.email-copy-action');
+      const originalActionText = emailCopyAction?.textContent ?? 'Tap to copy';
+
+      const fallbackCopy = (text) => {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.setAttribute('readonly', '');
+        textarea.style.position = 'absolute';
+        textarea.style.left = '-9999px';
+        document.body.appendChild(textarea);
+        textarea.select();
+        const copied = document.execCommand('copy');
+        document.body.removeChild(textarea);
+        return copied;
+      };
+
+      emailCopyBox.addEventListener('click', async () => {
+        const email = emailCopyBox.dataset.email;
+
+        try {
+          if (navigator.clipboard?.writeText && window.isSecureContext) {
+            await navigator.clipboard.writeText(email);
+          } else {
+            fallbackCopy(email);
+          }
+
+          emailCopyBox.dataset.state = 'copied';
+          if (emailCopyAction) emailCopyAction.textContent = 'Copied';
+
+          window.setTimeout(() => {
+            emailCopyBox.dataset.state = '';
+            if (emailCopyAction) emailCopyAction.textContent = originalActionText;
+          }, 1800);
+        } catch (error) {
+          emailCopyBox.dataset.state = 'error';
+          if (emailCopyAction) emailCopyAction.textContent = 'Copy failed';
+        }
+      });
+    }
   </script>
 </body>
 </html>
