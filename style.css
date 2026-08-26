@@ -315,9 +315,11 @@ svg {
 .hero-support {
   position: relative;
   z-index: 2;
-  width: min(var(--container), calc(100% - 42px));
+  width: 100%;
   margin: 0 auto;
   text-align: center;
+  background: #000;
+  padding: 22px 0 30px;
 }
 
 .hero-ctas {
@@ -348,7 +350,7 @@ svg {
 .intro-grid {
   display: grid;
   grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
-  gap: clamp(28px, 6vw, 72px);
+  gap: clamp(40px, 7vw, 96px);
   align-items: start;
 }
 
@@ -361,6 +363,13 @@ svg {
   align-items: end;
   justify-content: space-between;
   gap: 28px;
+}
+
+.stack-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
 }
 
 .section-title {
@@ -397,6 +406,10 @@ svg {
   line-height: 1.6;
 }
 
+.stack-heading .section-note {
+  max-width: 520px;
+}
+
 .card {
   position: relative;
   overflow: hidden;
@@ -420,6 +433,7 @@ svg {
 /* BIOGRAFÍA */
 .bio-card {
   padding: clamp(30px, 5vw, 54px);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.44), 0 0 18px rgba(0, 255, 102, 0.08);
 }
 
 .bio-card p {
@@ -882,16 +896,61 @@ svg {
 }
 
 .email-copy-box {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 12px 20px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid rgba(244, 255, 248, 0.16);
   border-radius: 999px;
-  border: 1px dashed rgba(244, 255, 248, 0.22);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  padding: 14px 24px;
   color: var(--color-text);
-  font-size: 1rem;
+  font: inherit;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px rgba(0, 255, 102, 0), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: transform var(--transition), border-color var(--transition), background var(--transition), box-shadow var(--transition);
+}
+
+.email-copy-box:hover,
+.email-copy-box:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(0, 255, 102, 0.34);
+  background: linear-gradient(180deg, rgba(0, 255, 102, 0.08), rgba(255, 255, 255, 0.03));
+  box-shadow: 0 0 0 1px rgba(0, 255, 102, 0.1), 0 16px 36px rgba(0, 0, 0, 0.28);
+}
+
+.email-copy-address {
+  font-size: 0.98rem;
+  font-weight: 700;
   letter-spacing: 0.05em;
-  user-select: text;
-  -webkit-user-select: text;
-  cursor: text;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.email-copy-action {
+  color: var(--color-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.email-copy-box[data-state="copied"] {
+  border-color: rgba(0, 255, 102, 0.5);
+  background: linear-gradient(180deg, rgba(0, 255, 102, 0.14), rgba(255, 255, 255, 0.03));
+}
+
+.email-copy-box[data-state="copied"] .email-copy-action {
+  color: var(--color-accent);
+}
+
+.email-copy-box[data-state="error"] {
+  border-color: rgba(255, 96, 96, 0.46);
+}
+
+.email-copy-box[data-state="error"] .email-copy-action {
+  color: #ff8f8f;
 }
 
 /* BOTÓN VOLVER ARRIBA */
@@ -1125,6 +1184,10 @@ svg {
   .intro-grid,
   .music-row {
     grid-template-columns: 1fr;
+  }
+
+  .intro-grid {
+    gap: 40px;
   }
 
   .split-heading {
