@@ -13,7 +13,7 @@
   <meta name="twitter:description" content="Hypnotic techno and progressive house from Argentine DJ and producer Parlagreco.">
   <meta name="twitter:image" content="images/principal.jpg">
   <title>Parlagreco — Official Website</title>
-  <link rel="icon" href="images/logo.png" type="image/png">
+  <link rel="icon" href="images/Parlagreco%20LOGO%20web%20vector.png" type="image/png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body id="top">
@@ -330,18 +330,8 @@
       </div>
     </section>
 
-    <!-- PRESS KIT -->
-    <section id="press" class="container spotlight-band">
-      <div class="card action-card">
-        <p class="section-kicker">Media ready</p>
-        <h2 class="section-title centered-title">Press Kit</h2>
-        <p>Download the official Press Kit including biography, high-resolution photos, and rider details.</p>
-        <a href="https://drive.google.com/file/d/10etCTPavit-uNmxZ2wuuUFgebAo1cpD3/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-primary">DOWNLOAD PRESS KIT (PDF)</a>
-      </div>
-    </section>
-
     <!-- BOOKING -->
-    <section id="booking" class="container booking-section">
+    <section id="booking" class="container booking-press-grid" aria-label="Booking and press resources">
       <div class="card booking-card">
         <p class="section-kicker">Management and shows</p>
         <h2 class="section-title centered-title">Booking</h2>
@@ -351,11 +341,16 @@
           <a href="mailto:parlagrecomusic@gmail.com" class="booking-email-btn">
             SEND EMAIL
           </a>
-          <button type="button" class="email-copy-box" data-email="parlagrecomusic@gmail.com" aria-label="Copy booking email to clipboard">
-            <span class="email-copy-address">parlagrecomusic@gmail.com</span>
-            <span class="email-copy-action">Tap to copy</span>
+          <button type="button" class="email-copy-box" data-email="parlagrecomusic@gmail.com" aria-label="Tap to copy email to clipboard">
+            <span class="email-copy-action">Tap to copy email</span>
           </button>
         </div>
+      </div>
+      <div id="press" class="card action-card">
+        <p class="section-kicker">Media ready</p>
+        <h2 class="section-title centered-title">Press Kit</h2>
+        <p>Download official artist materials, including biography, high-resolution photos, and rider details.</p>
+        <a id="press-kit" href="https://drive.google.com/file/d/10etCTPavit-uNmxZ2wuuUFgebAo1cpD3/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-primary">DOWNLOAD</a>
       </div>
     </section>
 
@@ -416,7 +411,7 @@
 
     if (emailCopyBox) {
       const emailCopyAction = emailCopyBox.querySelector('.email-copy-action');
-      const originalActionText = emailCopyAction?.textContent ?? 'Tap to copy';
+      const originalActionText = emailCopyAction?.textContent ?? 'Tap to copy email';
 
       const fallbackCopy = (text) => {
         const textarea = document.createElement('textarea');

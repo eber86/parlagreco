@@ -433,7 +433,6 @@ svg {
 .bio-card {
   padding: clamp(30px, 5vw, 54px);
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.44), 0 0 18px rgba(0, 255, 102, 0.08);
-  max-width: 920px;
 }
 
 .bio-card p {
@@ -598,7 +597,10 @@ svg {
 /* ACCIONES Y BOTONES */
 .action-card {
   text-align: center;
-  padding: clamp(38px, 7vw, 72px);
+  padding: clamp(36px, 6.5vw, 72px) clamp(26px, 4.5vw, 54px);
+  scroll-margin-top: 110px;
+  display: flex;
+  flex-direction: column;
 }
 
 .action-card p:not(.section-kicker) {
@@ -834,13 +836,30 @@ svg {
 
 /* BOOKING */
 .spotlight-band,
-.booking-section {
-  width: min(980px, calc(100% - 42px));
+.booking-press-grid {
+  width: min(var(--container), calc(100% - 42px));
+}
+
+.booking-press-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 2.5vw, 32px);
+  align-items: stretch;
+}
+
+.booking-card,
+.action-card {
+  scroll-margin-top: 110px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
 }
 
 .booking-card {
   text-align: center;
-  padding: clamp(38px, 7vw, 76px) clamp(24px, 5vw, 58px);
+  padding: clamp(36px, 6.5vw, 72px) clamp(26px, 4.5vw, 54px);
 }
 
 .booking-card p:not(.section-kicker) {
@@ -860,8 +879,15 @@ svg {
   flex-direction: column;
   align-items: center;
   gap: 18px;
+  margin-top: auto;
 }
 
+.action-card .btn-primary {
+  align-self: center;
+  width: auto;
+  max-width: 100%;
+  margin-top: auto;
+}
 .booking-email-btn {
   display: inline-flex;
   align-items: center;
@@ -889,15 +915,13 @@ svg {
 
 .email-copy-box {
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
-  gap: 6px;
   appearance: none;
   -webkit-appearance: none;
   border: 1px solid rgba(244, 255, 248, 0.16);
   border-radius: 999px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
-  padding: 14px 24px;
+  padding: 15px 28px;
   color: var(--color-text);
   font: inherit;
   cursor: pointer;
@@ -913,19 +937,11 @@ svg {
   box-shadow: 0 0 0 1px rgba(0, 255, 102, 0.1), 0 16px 36px rgba(0, 0, 0, 0.28);
 }
 
-.email-copy-address {
-  font-size: 0.98rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
 .email-copy-action {
   color: var(--color-muted);
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: none;
 }
 
 .email-copy-box[data-state="copied"] {
@@ -1177,6 +1193,10 @@ svg {
     grid-template-columns: 1fr;
   }
 
+  .booking-press-grid {
+    grid-template-columns: 1fr;
+  }
+
   .split-heading {
     align-items: start;
     flex-direction: column;
@@ -1224,7 +1244,7 @@ svg {
   .container,
   .tour-section,
   .spotlight-band,
-  .booking-section {
+  .booking-press-grid {
     width: min(100% - 28px, var(--container));
   }
 
