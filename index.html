@@ -376,6 +376,46 @@
       });
     }
 
+    const sectionNavItems = Array.from(navLinks)
+      .map((link) => {
+        const id = link.getAttribute('href')?.replace('#', '');
+        const section = id ? document.getElementById(id) : null;
+        return section ? { link, section } : null;
+      })
+      .filter(Boolean);
+
+    const setActiveNavLink = (activeLink) => {
+      sectionNavItems.forEach(({ link }) => {
+        const isActive = link === activeLink;
+        link.classList.toggle('is-active', isActive);
+        if (isActive) {
+          link.setAttribute('aria-current', 'true');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    };
+
+    sectionNavItems.forEach(({ link }) => {
+      link.addEventListener('click', () => setActiveNavLink(link));
+    });
+
+    if ('IntersectionObserver' in window) {
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          const activeItem = sectionNavItems.find(({ section }) => section === entry.target);
+          if (activeItem) setActiveNavLink(activeItem.link);
+        });
+      }, {
+        rootMargin: '-42% 0px -48% 0px',
+        threshold: 0,
+      });
+
+      sectionNavItems.forEach(({ section }) => sectionObserver.observe(section));
+    }
+
     function setupCarousel(trackId, prevBtnId, nextBtnId, scrollAmount = 300) {
       const track = document.getElementById(trackId);
       const prevBtn = document.getElementById(prevBtnId);

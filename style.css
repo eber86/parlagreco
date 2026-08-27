@@ -155,12 +155,14 @@ svg {
 }
 
 .nav-links a:hover,
-.nav-links a:focus-visible {
+.nav-links a:focus-visible,
+.nav-links a.is-active {
   color: var(--color-text);
 }
 
 .nav-links a:hover::after,
-.nav-links a:focus-visible::after {
+.nav-links a:focus-visible::after,
+.nav-links a.is-active::after {
   opacity: 1;
   transform: scaleX(1);
 }
@@ -305,6 +307,7 @@ svg {
 }
 
 .hero-copy {
+  width: min(560px, calc(100% - 42px));
   max-width: 560px;
   margin: 0 auto;
   color: rgba(244, 255, 248, 0.8);
@@ -327,7 +330,7 @@ svg {
   flex-wrap: wrap;
   justify-content: center;
   gap: 14px;
-  margin-top: 24px;
+  margin: 24px auto 0;
 }
 
 /* CONTENEDOR GENERAL */
@@ -888,42 +891,46 @@ svg {
   max-width: 100%;
   margin-top: auto;
 }
-.booking-email-btn {
+
+.booking-email-btn,
+.email-copy-box {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
   min-height: 52px;
+  min-width: 224px;
+  padding: 15px 38px;
+  border-radius: 9999px;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.booking-email-btn {
   background: var(--color-accent);
   color: #001706;
-  padding: 15px 38px;
-  font-weight: 900;
-  font-size: 0.82rem;
   text-decoration: none;
-  border-radius: 999px;
-  letter-spacing: 0.18em;
   transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
-  text-transform: uppercase;
   box-shadow: 0 0 28px rgba(0, 255, 102, 0.28);
 }
 
 .booking-email-btn:hover,
 .booking-email-btn:focus-visible {
-  background: #f5fff8;
+  background: #00d957;
   transform: translateY(-2px);
   box-shadow: 0 0 38px rgba(0, 255, 102, 0.32);
 }
 
 .email-copy-box {
-  display: inline-flex;
-  align-items: center;
   appearance: none;
   -webkit-appearance: none;
   border: 1px solid rgba(244, 255, 248, 0.16);
-  border-radius: 999px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
-  padding: 15px 28px;
   color: var(--color-text);
-  font: inherit;
   cursor: pointer;
   box-shadow: 0 0 0 1px rgba(0, 255, 102, 0), inset 0 1px 0 rgba(255, 255, 255, 0.04);
   transition: transform var(--transition), border-color var(--transition), background var(--transition), box-shadow var(--transition);
@@ -939,9 +946,6 @@ svg {
 
 .email-copy-action {
   color: var(--color-muted);
-  font-size: 0.82rem;
-  letter-spacing: 0.14em;
-  text-transform: none;
 }
 
 .email-copy-box[data-state="copied"] {
@@ -1260,8 +1264,14 @@ svg {
     max-width: min(360px, 78vw);
   }
 
+  .hero-copy {
+    width: min(100% - 28px, 340px);
+    font-size: 0.96rem;
+    line-height: 1.55;
+  }
+
   .hero-ctas {
-    align-items: stretch;
+    align-items: center;
     flex-direction: column;
     width: min(100%, 340px);
   }
@@ -1269,6 +1279,27 @@ svg {
   .btn-primary,
   .btn-secondary {
     width: 100%;
+  }
+
+  .hero-ctas .btn-primary,
+  .hero-ctas .btn-secondary {
+    max-width: 340px;
+  }
+
+  .booking-email-btn,
+  .email-copy-box {
+    justify-content: center;
+    width: min(100%, 300px);
+    text-align: center;
+  }
+
+  .back-to-top {
+    right: 14px;
+    bottom: 14px;
+    z-index: 1100;
+    width: 42px;
+    height: 42px;
+    background: rgba(0, 0, 0, 0.92);
   }
 
   .section-title {
@@ -1298,7 +1329,7 @@ svg {
   .email-copy-box {
     width: 100%;
     overflow-wrap: anywhere;
-    border-radius: var(--radius-sm);
+    /* border-radius: var(--radius-sm); */
   }
 }
 
